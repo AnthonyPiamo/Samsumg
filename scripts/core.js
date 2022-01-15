@@ -36,6 +36,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
       return k;
     }
   }
+  
+  // realiza las operaciones
+  function operate(){
+    let decimal_place = highestDecimal(current.innerText,"0.2");
+    let num1 = past.innerText;
+    let num2 = current.innerText;
+
+    if (OAR_status != "none"){
+
+      switch(OAR_status){
+        case "suma":
+          past.innerText = suma(num1,num2,decimal_place);
+          break;
+        case "resta":
+          past.innerText = resta(num1,num2,decimal_place);
+          break;
+        case "multiplicacion":
+          past.innerText = mult(num1,num2);
+          break;
+        case "division":
+          past.innerText = div(num1,num2);
+          break;
+
+      }
+    current.innerText = '';
+    OAR_status = "none";
+    }
+  }
+
 
   // Listener para cada pulsacion de boton
   document.addEventListener('click', ({ target }) => {
@@ -56,54 +85,44 @@ window.addEventListener('DOMContentLoaded', (event) => {
       
       // Caso igual: revisa la operacion a realizar y la ejecuta, si no hay, omite hacer cambios, al final limpia el estado del operando
       case "=":
-        let decimal_place = highestDecimal(current.innerText,"0.2");
-        let num1 = past.innerText;
-        let num2 = current.innerText;
-
-        if (OAR_status == "none"){
-          break;
-
-        }else{
-
-          switch(OAR_status){
-            case "suma":
-              past.innerText = suma(num1,num2,decimal_place);
-              break;
-            case "resta":
-              past.innerText = resta(num1,num2,decimal_place);
-              break;
-            case "multiplicacion":
-              past.innerText = mult(num1,num2);
-              break;
-            case "division":
-              past.innerText = div(num1,num2);
-              break;
-
-          }
-          current.innerText = '';
-          OAR_status = "none";
-          break;
-        }
+        operate();
+        break;
       
       // casos de operaciones, actualizan OAR y envian el valor al display superior //
       case "+":
+        if (OAR_status != 'none'){
+          operate();
+        }else{
+          submit();
+        }
         OAR_status = "suma";
-        submit();
         break;
       
       case "-":
+        if (OAR_status != 'none'){
+          operate();
+        }else{
+          submit();
+        }
         OAR_status = "resta";
-        submit();
         break;
 
       case "×":
+        if (OAR_status != 'none' && OAR_status!=0){
+          operate();
+        }else{
+          submit();
+        }
         OAR_status = "multiplicacion";
-        submit();
         break;
 
       case "÷":
+        if (OAR_status != 'none'){
+          operate();
+        }else{
+          submit();
+        }
         OAR_status = "division";
-        submit();
         break;
       
       // Caso CLEAR: "corta" el ultimo caracter del display inferior

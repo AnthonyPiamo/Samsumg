@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilos/global.css">
+    <link rel="stylesheet" href="./estilos/movil.css">
+    <link rel="stylesheet" href="./estilos/escritorio.css">
+    <link rel="stylesheet" href="./estilos/animaciones.css">
+    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/definitions.js"></script>
+    <title>PPoT</title>
+</head>
+<body>
+    <div id="anti-click"></div>
+    <header class="titulo center-flex-content">
+        ¡Piedra Papel o tijeras!
+    </header>
+    <!-- Overlays de victoria, derrota, empate -->
+    <div id="overlays">
+
+        <div id="victoria" class="center-flex-content overlay">
+            <span>
+                ¡Victoria!
+            </span>
+        </div>
+
+        <div id="derrota" class="center-flex-content overlay">
+            <span>
+                Derrota...
+            </span>
+        </div>
+        
+        <div id="empate" class="center-flex-content overlay">
+            <span>
+                Empate.
+            </span>
+        </div>
+    </div> 
+
+    <!-- Juego -->
+    <div id="campo-de-juego">
+        <div class="center-flex-content bot-selection">
+            <img src="sprites/otros/destello.svg" id="destello" class="giro">
+            <div id="bot-selection" class="center-flex-content">
+                <!-- El contenido se define por javascript -->
+            </div>
+        </div>
+        <div id="container">
+            <div id="display" class="center-flex-content">
+                <div id="selection">
+                    <!-- el contenido se define por javascript-->
+                </div>  
+            </div>
+            <div id="opciones">
+                <div id="0" class="opcion center-flex-content not-selected">
+                    piedra
+                </div>
+                <div id="1" class="opcion center-flex-content not-selected">
+                    papel
+                </div>
+                <div id="2" class="opcion center-flex-content not-selected">
+                    tijeras
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

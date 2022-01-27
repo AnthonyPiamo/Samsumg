@@ -1,0 +1,100 @@
+@media screen and (min-width: 600px){
+
+    body{
+        margin:0px;
+        font-family: square-font;
+        background-color: rgb(97, 193, 218);
+        overflow-y:hidden;
+    }
+
+    .bot-selection{
+        height:50vmin;
+        width:60vmax;
+    }
+
+    #campo-de-juego{
+        margin-top:5vmax;
+        display:flex;
+        flex-direction:row;
+    }
+
+    #container{
+        align-items:center;
+        margin-left:50px;
+        display:flex;
+        flex-direction:column;
+    }
+
+    #display{
+        width:50vmin;
+        height:50vmin;
+        display:flex;
+    }
+
+    .titulo{
+        width:100vmax;
+        font-size:8vmin; 
+        height:10vmin;
+        display: flex;
+        justify-content:center;
+        background: green;
+    }
+
+    .objeto{
+        --porcentaje: 27%;
+        position:absolute;
+        width: var(--porcentaje);
+    }
+
+    .opcion{
+        border-radius:30% 30% 0 0;
+        margin-bottom:0;
+        display:flex;
+        justify-content:center;
+        height:5vmin;
+        width: 15vw;
+        margin: 1vmax;
+        margin-bottom:0;
+    }
+
+    #opciones{
+        display: flex;
+        flex-direction: row;
+        align-items:end;
+        justify-content: space-around;
+        width:35vmax;
+        height:15vmin;
+        padding: 0px 5vmax 0px 5vmax;
+        overflow:hidden;
+
+    }
+
+    #opciones::before{
+      content:'';
+      z-index:-1;
+      position:absolute;
+      transform: translateY(30px);
+      box-shadow: 0px 0px 10px 10px rgb(74 163 186);
+      width:36vmax;
+      height:30px;
+    }
+
+    #opciones::after{
+      content:'';
+      position:absolute;
+      width:40vmax;
+      height:60px;
+      transform:translateY(60px);
+      background-color:rgb(97, 193, 218);
+    }
+
+    .opcion-oculta{
+        transform:translateY(15vmin);
+        box-shadow:none;
+    }
+
+    .overlay span{
+        transform: translateY(-10vmin);
+    }
+
+}
